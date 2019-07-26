@@ -4,7 +4,7 @@ import VideoWithOverlay from "./VideoWithOverlay";
 import './styles.css';
 
 const MAX_FRAME_LENGTH = 4;
-const EPS = 0.001;
+const EPS = 0.01;
 
 export default class Webcam extends React.Component {
     state = {
