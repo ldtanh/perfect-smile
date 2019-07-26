@@ -65,19 +65,31 @@ class ArrowGameComponent extends React.Component {
     if (result) {
       switch (type) {
         case EnumArrowType.UP: {
-          this.upRef.current.boom();
+          if (this.upRef.current) {
+            this.upRef.current.boom();
+          }
+
           break;
         }
         case EnumArrowType.DOWN: {
-          this.downRef.current.boom();
+          if (this.downRef.current) {
+            this.downRef.current.boom();
+          }
+
           break;
         }
         case EnumArrowType.LEFT: {
-          this.leftRef.current.boom();
+          if (this.leftRef.current) {
+            this.leftRef.current.boom();
+          }
+
           break;
         }
         case EnumArrowType.RIGHT: {
-          this.rightRef.current.boom();
+          if (this.rightRef.current) {
+            this.rightRef.current.boom();
+          }
+
           break;
         }
       }
