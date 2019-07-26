@@ -10,12 +10,12 @@ export const EnumDirection = {
   BOTTOM: "bottom"
 };
 
-const IMAGE_STYLE = { width: 100, height: 100 };
+const IMAGE_STYLE = { width: 30, height: 30 };
 const EXPLOSION_STYLE = {
-  width: 200,
-  height: 200,
+  width: 50,
+  height: 50,
   position: "relative",
-  top: -150
+  top: -30
 };
 class ExplosionArrow extends Component {
   componentDidMount() {
@@ -26,7 +26,6 @@ class ExplosionArrow extends Component {
       rows: 9,
       iterations: 1
     });
-    // setInterval(this.boom, 3000);
   }
 
   getRotateAngle = () => {

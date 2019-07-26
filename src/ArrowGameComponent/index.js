@@ -1,9 +1,10 @@
 import React from "react";
 
 import ArrowItem from "./ArrowItem";
-import "./styles.scss";
 import { EnumArrowType } from "../const";
 import ExplosionArrow, { EnumDirection } from "../components/ExplosionArrow";
+
+import "./styles.scss";
 
 // props:
 // moveTime: number -> how many second to reach top
@@ -11,6 +12,10 @@ import ExplosionArrow, { EnumDirection } from "../components/ExplosionArrow";
 // state:
 // data: Array<>
 class ArrowGameComponent extends React.Component {
+  leftRef = React.createRef();
+  downRef = React.createRef();
+  upRef = React.createRef();
+  rightRef = React.createRef();
   constructor(props) {
     super(props);
 
@@ -55,9 +60,32 @@ class ArrowGameComponent extends React.Component {
     });
   };
 
-  handleReachTop = async id => {
+  handleReachTop = async (id, type) => {
     console.log(id);
-    return Math.random() < 0.5;
+    const result = true;
+    // const result = Math.random() < 0.5;
+    if (result) {
+      switch (type) {
+        case EnumArrowType.UP: {
+          console.log('vao ne')
+          this.upRef.current.boom();
+          break;
+        }
+        case EnumArrowType.DOWN: {
+          this.downRef.current.boom();
+          break;
+        }
+        case EnumArrowType.LEFT: {
+          this.leftRef.current.boom();
+          break;
+        }
+        case EnumArrowType.RIGHT: {
+          this.rightRef.current.boom();
+          break;
+        }
+      }
+    }
+    return result;
   };
 
   render() {
@@ -79,10 +107,10 @@ class ArrowGameComponent extends React.Component {
     return (
       <div className="arrow-game-wrapper" id="arrow-game">
         <div className="arrow-holder-wrapper">
-          <ExplosionArrow direction={EnumDirection.LEFT} />
-          <ExplosionArrow direction={EnumDirection.BOTTOM} />
-          <ExplosionArrow direction={EnumDirection.TOP} />
-          <ExplosionArrow direction={EnumDirection.RIGHT} />
+          <ExplosionArrow ref={this.leftRef} direction={EnumDirection.LEFT} />
+          <ExplosionArrow ref={this.downRef} direction={EnumDirection.BOTTOM} />
+          <ExplosionArrow ref={this.upRef} direction={EnumDirection.TOP} />
+          <ExplosionArrow ref={this.rightRef} direction={EnumDirection.RIGHT} />
         </div>
         <div className="arrow-move-container">
           {element && (
@@ -94,7 +122,9 @@ class ArrowGameComponent extends React.Component {
                     type={arrowItem.type}
                     isStart={!!isAnimatedMap[arrowItem.id]}
                     moveTime={moveTime}
-                    onReachTop={() => this.handleReachTop(arrowItem.id)}
+                    onReachTop={() =>
+                      this.handleReachTop(arrowItem.id, arrowItem.type)
+                    }
                     distance={element.clientHeight}
                   />
                 ))}
@@ -106,7 +136,7 @@ class ArrowGameComponent extends React.Component {
                     type={arrowItem.type}
                     isStart={!!isAnimatedMap[arrowItem.id]}
                     moveTime={moveTime}
-                    onReachTop={() => this.handleReachTop(arrowItem.id)}
+                    onReachTop={() => this.handleReachTop(arrowItem.id, arrowItem.type)}
                     distance={element.clientHeight}
                   />
                 ))}
@@ -118,7 +148,7 @@ class ArrowGameComponent extends React.Component {
                     type={arrowItem.type}
                     isStart={!!isAnimatedMap[arrowItem.id]}
                     moveTime={moveTime}
-                    onReachTop={() => this.handleReachTop(arrowItem.id)}
+                    onReachTop={() => this.handleReachTop(arrowItem.id, arrowItem.type)}
                     distance={element.clientHeight}
                   />
                 ))}
@@ -130,7 +160,7 @@ class ArrowGameComponent extends React.Component {
                     type={arrowItem.type}
                     isStart={!!isAnimatedMap[arrowItem.id]}
                     moveTime={moveTime}
-                    onReachTop={() => this.handleReachTop(arrowItem.id)}
+                    onReachTop={() => this.handleReachTop(arrowItem.id, arrowItem.type)}
                     distance={element.clientHeight}
                   />
                 ))}

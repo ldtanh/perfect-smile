@@ -1,6 +1,8 @@
 import React from "react";
 
-import UpIcon from "../assets/up_icon.png";
+import { EnumArrowType } from "../const";
+
+import ArrowIcon from "../assets/itg_arrow_good_400x400.png";
 
 class ArrowItem extends React.Component {
   constructor(props) {
@@ -13,7 +15,7 @@ class ArrowItem extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { isStart, distance, onReachTop, moveTime } = this.props;
+    const { isStart, distance, moveTime } = this.props;
     if (isStart && !prevProps.isStart) {
       this.setState(
         {
@@ -33,18 +35,33 @@ class ArrowItem extends React.Component {
     }
   };
 
+  getRotateAngle = () => {
+    switch (this.props.type) {
+      case EnumArrowType.UP:
+        return 180;
+      case EnumArrowType.LEFT:
+        return 90;
+      case EnumArrowType.RIGHT:
+        return -90;
+      default:
+        return 0;
+    }
+  };
+
   render() {
     const { moveTime } = this.props;
     const { bottom, scale } = this.state;
+    const rotate = `rotate(${this.getRotateAngle()}deg)`;
     return (
       <img
-        src={UpIcon}
+        src={ArrowIcon}
         alt="up-icon"
         className={`arrow-item`}
         style={{
-          transition: `bottom ${moveTime / 1000}s linear, opacity 0.2s, transform 0.2s`,
+          transition: `bottom ${moveTime /
+            1000}s linear, opacity 0.2s, transform 0.2s`,
           bottom,
-          transform: `scale(${scale})`,
+          transform: `scale(${scale}) ${rotate}`,
           opacity: scale
         }}
       />
