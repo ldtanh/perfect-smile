@@ -6,6 +6,8 @@ import BackButton from "./BackButton";
 import HappyBar from "./HappyBar";
 
 class PlayContainer extends React.Component {
+  webcamRef = React.createRef();
+
   state = {
     score: 0,
     happy: 20,
@@ -24,8 +26,8 @@ class PlayContainer extends React.Component {
     return (
       <div className="play-container" onClick={() => this.handleHappyChange(Math.floor((Math.random() * 100) + 1))}>
         <PlayTime />
-        <PlayRoad level={level} onScoreChange={this.handleScoreChange} />
-        <Webcam />
+        <PlayRoad level={level} onScoreChange={this.handleScoreChange} webcam={this.webcamRef} />
+        <Webcam ref={this.webcamRef} />
         <BackButton onStop={onStop} />
         <HappyBar percentage={happy} />
       </div>

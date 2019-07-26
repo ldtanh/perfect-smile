@@ -1,7 +1,12 @@
 import React from "react";
 
 import ArrowItem from "./ArrowItem";
-import { EnumArrowType } from "../const";
+import {
+  COOL_SCORE,
+  EnumArrowType,
+  PERFECT_SCORE,
+  TIMEOUT_DETECT_MOVEMENT
+} from "../const";
 import ExplosionArrow, { EnumDirection } from "../components/ExplosionArrow";
 
 import "./styles.scss";
@@ -60,12 +65,10 @@ class ArrowGameComponent extends React.Component {
     });
   };
 
-  handleReachTop = async (id, type) => {
-    const result = Math.random() < 0.5;
-    if (result) {
-      switch (type) {
-        case EnumArrowType.UP: {
-          if (this.upRef.current) {
+  handleBoom = type => {
+    switch (type) {
+      case EnumArrowType.UP: {
+        if (this.upRef.current) {
             this.upRef.current.boom();
           }
 
@@ -91,10 +94,33 @@ class ArrowGameComponent extends React.Component {
           }
 
           break;
-        }
+        }}
+  };
+
+  handleReachTop = async (id, type) => {
+    const currentTime = Date.now();
+    const data = await this.props.webcam.current.checkDirectionWithTimeout(
+      type,
+      TIMEOUT_DETECT_MOVEMENT
+    );
+    const {
+      isValid,
+      happyValue
+    } = data;
+    if (isValid) {
+      const detectTime = Date.now();
+      const elapsedTime = detectTime - currentTime;
+      if (
+        elapsedTime <= TIMEOUT_DETECT_MOVEMENT / 3 ||
+        elapsedTime > (TIMEOUT_DETECT_MOVEMENT * 2) / 3
+      ) {
+        this.props.onScoreChange(COOL_SCORE);
+      } else {
+        this.props.onScoreChange(PERFECT_SCORE);
       }
+      this.handleBoom(type);
     }
-    return result;
+    return isValid;
   };
 
   render() {
