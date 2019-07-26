@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="895cc6a6-2854-4b45-8116-46d11384e455" name="Default Changelist" comment="Update CSS">
-      <change afterPath="$PROJECT_DIR$/src/assets/bg-video.webm" afterDir="false" />
+    <list default="true" id="895cc6a6-2854-4b45-8116-46d11384e455" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/ScoreBoard/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/ScoreBoard/styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/BackgroundVideo/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BackgroundVideo/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/HappyBar/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/HappyBar/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/Webcam/VideoWithOverlay.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/Webcam/VideoWithOverlay.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/Webcam/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/Webcam/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
