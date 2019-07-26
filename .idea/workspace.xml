@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="895cc6a6-2854-4b45-8116-46d11384e455" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArrowGameComponent/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArrowGameComponent/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/PlayRoad/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/PlayRoad/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/const.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/const.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,14 +14,23 @@
     <splitter split-orientation="horizontal" split-proportion="0.72283006">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/ArrowGameComponent/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="116" column="36" lean-forward="true" selection-start-line="116" selection-start-column="36" selection-end-line="116" selection-end-column="36" />
+                <state relative-caret-position="245">
+                  <caret line="174" column="43" lean-forward="true" selection-start-line="174" selection-start-column="43" selection-end-line="174" selection-end-column="43" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/const.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="323">
+                  <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
                 </state>
               </provider>
             </entry>
@@ -84,9 +91,9 @@
       <find>ArrowIcon</find>
       <find>arrow-move-wrapper</find>
       <find>arrow-holder</find>
-      <find>console.log</find>
       <find>200</find>
       <find>check</find>
+      <find>console.log</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -106,10 +113,11 @@
         <option value="$PROJECT_DIR$/src/components/spriteAnimation.js" />
         <option value="$PROJECT_DIR$/src/ArrowGameComponent/ArrowItem.js" />
         <option value="$PROJECT_DIR$/src/ArrowGameComponent/styles.scss" />
-        <option value="$PROJECT_DIR$/src/const.js" />
         <option value="$PROJECT_DIR$/src/ArrowGameComponent/index.js" />
         <option value="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/PlayRoad/index.jsx" />
         <option value="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/index.jsx" />
+        <option value="$PROJECT_DIR$/src/components/PageLayout/PlayContainer/Webcam/index.jsx" />
+        <option value="$PROJECT_DIR$/src/const.js" />
       </list>
     </option>
   </component>
@@ -245,11 +253,18 @@
       <option name="project" value="LOCAL" />
       <updated>1564144822696</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Merge">
+      <created>1564145561700</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1564145561700</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6775000" />
+    <option name="totallyTimeSpent" value="7738000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -337,13 +352,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/const.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ArrowGameComponent/ArrowItem.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -383,11 +391,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ArrowGameComponent/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="116" column="36" lean-forward="true" selection-start-line="116" selection-start-column="36" selection-end-line="116" selection-end-column="36" />
+        <state relative-caret-position="245">
+          <caret line="174" column="43" lean-forward="true" selection-start-line="174" selection-start-column="43" selection-end-line="174" selection-end-column="43" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/const.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
