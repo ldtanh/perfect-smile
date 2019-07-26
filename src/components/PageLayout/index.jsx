@@ -3,40 +3,32 @@ import "./styles.scss";
 import BackgroundVideo from "../BackgroundVideo";
 import PlayContainer from "./PlayContainer";
 import MenuContainer from "./MenuContainer";
-
-const STEP = {
-  CHOOSE_LEVEL: "CHOOSE_LEVEL",
-  PLAY: "PLAY"
-};
+import {LEVEL} from "../../const";
 
 class PageLayout extends React.Component {
   state = {
-    step: STEP.CHOOSE_LEVEL
+    level: LEVEL.UNSET,
   };
 
-  handleStartPlay = level => {
-    this.setState({
-      step: STEP.PLAY
-    });
-  };
+  handleStartPlay = (level) =>
+    this.setState({ level });
 
-  handleStopPlay = () => {
-    this.setState({
-      step: STEP.CHOOSE_LEVEL
-    });
-  };
+  handleStopPlay = () =>
+    this.setState({ level: 0 });
 
   render() {
-    const { step } = this.state;
+    const { level } = this.state;
 
     return (
       <div className="page-layout">
         <BackgroundVideo />
 
-        {step === STEP.PLAY && <PlayContainer />}
+        {level !== LEVEL.UNSET && (
+            <PlayContainer level={level} onStop={this.handleStopPlay} />
+        )}
 
-        {step === STEP.CHOOSE_LEVEL && (
-          <MenuContainer onPlay={this.handleStartPlay} />
+        {level === LEVEL.UNSET && (
+            <MenuContainer onPlay={this.handleStartPlay} />
         )}
       </div>
     );

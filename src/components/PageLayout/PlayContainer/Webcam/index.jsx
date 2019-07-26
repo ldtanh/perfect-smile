@@ -9,7 +9,7 @@ const MAX_FRAME_LENGTH = 4;
 const EPS = 0.01;
 const HAPPY_THRESHOLD = 0.5;
 
-export default class Webcam extends React.Component {
+export default class Webcam extends React.PureComponent {
   state = {
     listFrames: [],
     faceDetectionOptions: new faceapi.TinyFaceDetectorOptions(),
@@ -171,16 +171,15 @@ export default class Webcam extends React.Component {
       );
     }
 
-    return (
-      <div className="webcam-container">
-        <VideoWithOverlay
-          srcObject={this.state.srcObject}
-          onLoaded={refs => this.setState(refs)}
-          videoStyle={{ maxWidth: this.props.maxVideoWidth }}
-          onVideoRef={this.onVideoRef}
-          onReceivedNextFrame={this.onReceivedNextFrame}
-        />
-      </div>
-    );
-  }
+        return (
+            <div className="webcam-container">
+                <VideoWithOverlay
+                    srcObject={this.state.srcObject}
+                    onLoaded={refs => this.setState(refs)}
+                    onVideoRef={this.onVideoRef}
+                    onReceivedNextFrame={this.onReceivedNextFrame}
+                />
+            </div>
+        );
+    }
 }

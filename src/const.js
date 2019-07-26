@@ -5,6 +5,13 @@ export const EnumArrowType = {
   RIGHT: "right"
 };
 
+export const LEVEL = {
+  UNSET: 0,
+  EASY: 1,
+  MEDIUM: 2,
+  HARD: 3,
+};
+
 const CONST_TIME = 2000;
 
 const MIN_BETWEEN_ARROW = 500;

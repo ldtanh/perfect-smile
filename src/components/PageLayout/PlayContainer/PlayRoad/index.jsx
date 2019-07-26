@@ -5,7 +5,7 @@ import { ARROWS, MOVE_TIME } from "../../../../const";
 
 import "./styles.css";
 
-const PlayRoad = ({ onScoreChange }) => (
+const PlayRoad = React.memo(({ onScoreChange }) => (
   <div className="play-road">
     <ArrowGameComponent
       moveTime={MOVE_TIME}
@@ -13,6 +13,6 @@ const PlayRoad = ({ onScoreChange }) => (
       onScoreChange={onScoreChange}
     />
   </div>
-);
+));
 
 export default PlayRoad;
