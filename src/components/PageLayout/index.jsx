@@ -21,7 +21,7 @@ class PageLayout extends React.Component {
 
     return (
       <div className="page-layout">
-        <BackgroundVideo />
+        <BackgroundVideo level={level} />
 
         {level !== LEVEL.UNSET && (
             <PlayContainer level={level} onStop={this.handleStopPlay} />

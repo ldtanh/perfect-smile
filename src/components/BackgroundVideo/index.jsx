@@ -2,10 +2,14 @@ import React from 'react';
 import BgVideo from '../../assets/bg-video.mp4';
 import './styles.css';
 
-const BackgroundVideo = () => (
+const BackgroundVideo = ({ level }) => (
     <div className="background-video">
         <iframe
-            src="https://www.youtube.com/embed/rRzxEiBLQCA?autoplay=1&controls=0&showinfo=0&autohide=1&start=47&loop=1"
+            src={
+                !level
+                    ? "https://www.youtube.com/embed/rRzxEiBLQCA?autoplay=1&controls=0&showinfo=0&autohide=1&start=0&loop=1&mute=1"
+                    : level
+            }
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
         />
