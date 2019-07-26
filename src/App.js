@@ -1,9 +1,8 @@
-import React from "react";
+import React from 'react';
+import './App.css';
+import PageLayout from "./components/PageLayout";
 
-import ArrowGameComponent from "./ArrowGameComponent";
 import { EnumArrowType } from "./const";
-
-import "./App.css";
 
 const CONST_TIME = 5000;
 const MOVE_TIME = 5000;
@@ -53,7 +52,7 @@ const ARROWS = [
 function App() {
   return (
     <div className="App">
-      <ArrowGameComponent moveTime={MOVE_TIME} arrows={ARROWS} />
+      <PageLayout />
     </div>
   );
 }

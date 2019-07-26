@@ -1,0 +1,19 @@
+.menu-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    z-index: 2;
+    padding: 30px;
+    background: white;
+    border: 5px solid lightskyblue;
+    border-radius: 10px;
+}
+
+.menu-container .title {
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
