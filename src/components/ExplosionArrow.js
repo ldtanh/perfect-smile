@@ -20,7 +20,7 @@ const EXPLOSION_STYLE = {
   width: IMAGE_SIZE + 80,
   height: IMAGE_SIZE + 80,
   position: "relative",
-  top: -(IMAGE_SIZE + 20)
+  top: -(IMAGE_SIZE + 40)
 };
 class ExplosionArrow extends Component {
   componentDidMount() {

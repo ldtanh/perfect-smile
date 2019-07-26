@@ -7,6 +7,7 @@ const HappyBar =  React.memo(({ percentage }) => (
         <div className="happy-bar">
             <div className="filler" id="happy-bar" style={{ width: `${percentage}%` }} />
         </div>
+        <div id="happy-score" />
     </div>
 ));
 

@@ -14,7 +14,7 @@ export const LEVEL = {
 
 const CONST_TIME = 5000;
 
-const MIN_BETWEEN_ARROW = 5000;
+const MIN_BETWEEN_ARROW = 2000;
 
 export const MOVE_TIME = 5000;
 

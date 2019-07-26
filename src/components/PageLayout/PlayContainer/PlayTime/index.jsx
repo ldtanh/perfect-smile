@@ -30,7 +30,6 @@ class PlayTime extends React.PureComponent {
     render() {
         return (
             <div className="play-time">
-                <span className="title">TIME</span>
                 <span className="time">{displayFormattedTime(this.state.time)}</span>
             </div>
         );

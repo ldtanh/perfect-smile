@@ -8,6 +8,17 @@
     font-weight: bold;
 }
 
+#happy-score {
+    position: absolute;
+    bottom: 470px;
+    right: 35px;
+    z-index: 2;
+    font-weight: bold;
+    color: white;
+    font-size: 40px;
+    opacity: 0;
+}
+
 .happy-bar {
     position: absolute;
     height: 20px;
