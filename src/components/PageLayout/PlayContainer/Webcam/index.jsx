@@ -106,7 +106,7 @@ export default class Webcam extends React.PureComponent {
     const { happy } = expressions;
     if (happy < HAPPY_THRESHOLD) {
       // Not enough happy!
-      console.log(`Unhappy!!! Rate: ${happy * 100} %`);
+      // console.log(`Unhappy!!! Rate: ${happy * 100} %`);
     }
     const { box } = detection;
     const { x, y } = box;

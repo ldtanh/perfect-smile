@@ -88,8 +88,15 @@ class ArrowGameComponent extends React.Component {
 
   handleReachTop = async (id, type) => {
     const currentTime = Date.now();
-    const result = Math.random() < 0.5;
-    if (result) {
+    const {
+      isValid,
+      happyValue
+    } = await this.props.webcam.current.checkDirectionWithTimeout(
+      type,
+      TIMEOUT_DETECT_MOVEMENT
+    );
+    console.log(isValid);
+    if (isValid) {
       const detectTime = Date.now();
       const elapsedTime = detectTime - currentTime;
       if (
@@ -102,7 +109,7 @@ class ArrowGameComponent extends React.Component {
       }
       this.handleBoom(type);
     }
-    return result;
+    return isValid;
   };
 
   render() {

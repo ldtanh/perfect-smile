@@ -5,12 +5,13 @@ import { ARROWS, MOVE_TIME } from "../../../../const";
 
 import "./styles.css";
 
-const PlayRoad = React.memo(({ onScoreChange }) => (
+const PlayRoad = React.memo(({ onScoreChange, webcam }) => (
   <div className="play-road">
     <ArrowGameComponent
       moveTime={MOVE_TIME}
       arrows={ARROWS}
       onScoreChange={onScoreChange}
+      webcam={webcam}
     />
   </div>
 ));
