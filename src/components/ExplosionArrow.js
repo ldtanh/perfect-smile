@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { SpriteAnimation } from "./spriteAnimation";
-import Vortex from "./spritesheet.png"; // Tell Webpack this JS file uses this image
+import RightExplosionIcon from "./spritesheet.png"; // Tell Webpack this JS file uses this image
 import ArrowIcon from "./itg_arrow_good_400x400.png"; // Tell Webpack this JS file uses this image
+import TopExplosionIcon from "../assets/topExplosion.png";
+import BottomExplosionIcon from "../assets/bottomExplosion.png";
+import LeftExplosionIcon from "../assets/leftExplosion.png";
 
 export const EnumDirection = {
   TOP: "top",
@@ -14,10 +17,10 @@ export const IMAGE_SIZE = 80;
 
 const IMAGE_STYLE = { width: IMAGE_SIZE, height: IMAGE_SIZE };
 const EXPLOSION_STYLE = {
-  width: IMAGE_SIZE + 40,
-  height: IMAGE_SIZE + 40,
+  width: IMAGE_SIZE + 80,
+  height: IMAGE_SIZE + 80,
   position: "relative",
-  top: -(IMAGE_SIZE + 10)
+  top: -(IMAGE_SIZE + 20)
 };
 class ExplosionArrow extends Component {
   componentDidMount() {
@@ -25,7 +28,7 @@ class ExplosionArrow extends Component {
       element: `image-${this.props.direction}`,
       frames: 60,
       columns: 10,
-      rows: 9,
+      rows: this.getRowOfSprite(),
       iterations: 1
     });
   }
@@ -40,6 +43,32 @@ class ExplosionArrow extends Component {
         return -90;
       default:
         return 0;
+    }
+  };
+
+  getExplosionIcon = () => {
+    switch (this.props.direction) {
+      case EnumDirection.TOP:
+        return TopExplosionIcon;
+      case EnumDirection.LEFT:
+        return LeftExplosionIcon;
+      case EnumDirection.RIGHT:
+        return RightExplosionIcon;
+      default:
+        return BottomExplosionIcon;
+    }
+  };
+
+  getRowOfSprite = () => {
+    switch (this.props.direction) {
+      case EnumDirection.TOP:
+        return 7;
+      case EnumDirection.LEFT:
+        return 9;
+      case EnumDirection.RIGHT:
+        return 9;
+      default:
+        return 8;
     }
   };
 
@@ -62,7 +91,7 @@ class ExplosionArrow extends Component {
         <div
           style={EXPLOSION_STYLE}
           className={`image-${this.props.direction}`}
-          data-animation-src={Vortex}
+          data-animation-src={this.getExplosionIcon()}
         ></div>
       </div>
     );
