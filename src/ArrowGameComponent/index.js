@@ -29,7 +29,7 @@ class ArrowGameComponent extends React.Component {
       isAnimatedMap: {} // map arrow id -> boolean
     };
     setTimeout(() => this.forceUpdate(), 100);
-    setTimeout(this.start, 500);
+    // setTimeout(this.start, 500);
   }
 
   _preProcessingData = () => {

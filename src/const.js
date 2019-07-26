@@ -12,9 +12,9 @@ export const LEVEL = {
   HARD: 3,
 };
 
-const CONST_TIME = 2000;
+const CONST_TIME = 5000;
 
-const MIN_BETWEEN_ARROW = 2000;
+const MIN_BETWEEN_ARROW = 3000;
 
 export const MOVE_TIME = 5000;
 
@@ -36,7 +36,7 @@ export const ARROWS = dummyArray.map(() => ({
   nextArrowStartTime: Math.max(Math.random() * CONST_TIME, MIN_BETWEEN_ARROW)
 }));
 
-export const TIMEOUT_DETECT_MOVEMENT = 1000;
+export const TIMEOUT_DETECT_MOVEMENT = 1500;
 
 export const PERFECT_SCORE = 500;
 export const COOL_SCORE = 300;
