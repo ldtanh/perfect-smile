@@ -68,26 +68,40 @@ class ArrowGameComponent extends React.Component {
   handleBoom = type => {
     switch (type) {
       case EnumArrowType.UP: {
-        this.upRef.current.boom();
-        break;
-      }
-      case EnumArrowType.DOWN: {
-        this.downRef.current.boom();
-        break;
-      }
-      case EnumArrowType.LEFT: {
-        this.leftRef.current.boom();
-        break;
-      }
-      case EnumArrowType.RIGHT: {
-        this.rightRef.current.boom();
-        break;
-      }
-    }
+        if (this.upRef.current) {
+            this.upRef.current.boom();
+          }
+
+          break;
+        }
+        case EnumArrowType.DOWN: {
+          if (this.downRef.current) {
+            this.downRef.current.boom();
+          }
+
+          break;
+        }
+        case EnumArrowType.LEFT: {
+          if (this.leftRef.current) {
+            this.leftRef.current.boom();
+          }
+
+          break;
+        }
+        case EnumArrowType.RIGHT: {
+          if (this.rightRef.current) {
+            this.rightRef.current.boom();
+          }
+
+          break;
+        }}
   };
 
   handleReachTop = async (id, type) => {
     const currentTime = Date.now();
+
+    if (!this.props.webcam.current) { return; }
+
     const data = await this.props.webcam.current.checkDirectionWithTimeout(
       type,
       TIMEOUT_DETECT_MOVEMENT

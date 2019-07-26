@@ -7,6 +7,9 @@ const MenuContainer = ({ onPlay }) => (
     <div className="menu-container">
         <img src={Logo} alt='' />
 
+        <br />
+        <br />
+
         <div className="title">
             LEVELS
         </div>

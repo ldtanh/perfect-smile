@@ -5,8 +5,8 @@ import "./styles.css";
 import DeferredPromise from "../../../DefferedPromise";
 import { EnumArrowType } from "../../../../const";
 
-const MAX_FRAME_LENGTH = 4;
-const EPS = 0.01;
+const MAX_FRAME_LENGTH = 8;
+const EPS = 0.1;
 const HAPPY_THRESHOLD = 0.5;
 
 export default class Webcam extends React.Component {
@@ -44,6 +44,7 @@ export default class Webcam extends React.Component {
   runFaceRecognition = async () => {
     const { mediaElement, overlay, faceDetectionOptions } = this.state;
     if (!mediaElement || !overlay) {
+      console.log('here')
       return;
     }
     const result = await faceapi
@@ -56,9 +57,7 @@ export default class Webcam extends React.Component {
       }
       this.onReceivedNextFrame(result);
     } else {
-      this.setState({
-        somethingDummy: Math.random()
-      });
+      this.runFaceRecognition();
     }
   };
 
@@ -116,6 +115,7 @@ export default class Webcam extends React.Component {
     const { box } = detection;
     const { x, y } = box;
     if (!this.checkLastMovingFrame(x, y)) {
+      this.runFaceRecognition();
       return;
     }
     const { listFrames } = this.state;
@@ -156,12 +156,14 @@ export default class Webcam extends React.Component {
         ]
       });
     } else {
-      listFrames.push({
-        x,
-        y
-      });
       this.setState({
-        listFrames
+        listFrames: [
+            ...listFrames,
+          {
+            x,
+            y
+          }
+        ]
       });
     }
   };
