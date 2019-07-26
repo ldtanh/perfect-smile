@@ -49,11 +49,9 @@ export default class Webcam extends React.Component {
       // console.log("here");
       return;
     }
-    console.time('faceapi');
     const result = await faceapi
       .detectSingleFace(mediaElement, faceDetectionOptions)
       .withFaceExpressions();
-    console.timeEnd('faceapi');
     if (result) {
       if (this.isFirstFaceDetected) {
         this.props.gameRef.current.start();

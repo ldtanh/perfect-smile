@@ -13,7 +13,7 @@ class PlayContainer extends React.Component {
 
   state = {
     score: 0,
-    happy: 20
+    happy: 0
   };
 
   componentDidMount() {
@@ -27,23 +27,23 @@ class PlayContainer extends React.Component {
 
   handleScoreChange = add => this.setState({ score: this.state.score + add });
 
-  handleHappyChange = happy => this.setState({ happy });
+  handleHappyChange = happy => {
+      if (happy) {
+          document.getElementById("happy-bar").style.width = `${happy * 100}%`;
+      }
+  };
 
   render() {
     const { level, onStop } = this.props;
     const { happy, score } = this.state;
 
     return (
-      <div
-        className="play-container"
-        onClick={() =>
-          this.handleHappyChange(Math.floor(Math.random() * 100 + 1))
-        }
-      >
+      <div className="play-container">
         <PlayTime />
         <PlayRoad
           level={level}
           onScoreChange={this.handleScoreChange}
+          onHappyChange={this.handleHappyChange}
           webcam={this.webcamRef}
           gameRef={this.gameRef}
         />

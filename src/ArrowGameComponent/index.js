@@ -122,6 +122,7 @@ class ArrowGameComponent extends React.Component {
         this.props.onScoreChange(PERFECT_SCORE);
       }
       this.handleBoom(type);
+      this.props.onHappyChange(happyValue);
     }
     return isValid;
   };
