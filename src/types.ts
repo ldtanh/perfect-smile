@@ -1,1 +1,0 @@
-export type ReactElement = React.Component | JSX.Element | Array<React.Component | JSX.Element>
