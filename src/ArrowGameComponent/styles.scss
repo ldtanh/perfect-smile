@@ -1,9 +1,9 @@
 .arrow-game-wrapper {
   height: 100vh;
   position: relative;
-  border: solid 1px #000;
   margin-top: 100px;
   overflow: hidden;
+  z-index: 1000000;
 }
 
 .arrow-move-container {
