@@ -61,13 +61,10 @@ class ArrowGameComponent extends React.Component {
   };
 
   handleReachTop = async (id, type) => {
-    console.log(id);
-    const result = true;
-    // const result = Math.random() < 0.5;
+    const result = Math.random() < 0.5;
     if (result) {
       switch (type) {
         case EnumArrowType.UP: {
-          console.log('vao ne')
           this.upRef.current.boom();
           break;
         }
@@ -112,61 +109,69 @@ class ArrowGameComponent extends React.Component {
           <ExplosionArrow ref={this.upRef} direction={EnumDirection.TOP} />
           <ExplosionArrow ref={this.rightRef} direction={EnumDirection.RIGHT} />
         </div>
-        <div className="arrow-move-container">
-          {element && (
-            <React.Fragment>
-              <div className="arrow-move-wrapper">
-                {leftArrowData.map(arrowItem => (
-                  <ArrowItem
-                    key={arrowItem.id}
-                    type={arrowItem.type}
-                    isStart={!!isAnimatedMap[arrowItem.id]}
-                    moveTime={moveTime}
-                    onReachTop={() =>
-                      this.handleReachTop(arrowItem.id, arrowItem.type)
-                    }
-                    distance={element.clientHeight}
-                  />
-                ))}
-              </div>
-              <div className="arrow-move-wrapper">
-                {downArrowData.map(arrowItem => (
-                  <ArrowItem
-                    key={arrowItem.id}
-                    type={arrowItem.type}
-                    isStart={!!isAnimatedMap[arrowItem.id]}
-                    moveTime={moveTime}
-                    onReachTop={() => this.handleReachTop(arrowItem.id, arrowItem.type)}
-                    distance={element.clientHeight}
-                  />
-                ))}
-              </div>
-              <div className="arrow-move-wrapper">
-                {upArrowData.map(arrowItem => (
-                  <ArrowItem
-                    key={arrowItem.id}
-                    type={arrowItem.type}
-                    isStart={!!isAnimatedMap[arrowItem.id]}
-                    moveTime={moveTime}
-                    onReachTop={() => this.handleReachTop(arrowItem.id, arrowItem.type)}
-                    distance={element.clientHeight}
-                  />
-                ))}
-              </div>
-              <div className="arrow-move-wrapper">
-                {rightArrowData.map(arrowItem => (
-                  <ArrowItem
-                    key={arrowItem.id}
-                    type={arrowItem.type}
-                    isStart={!!isAnimatedMap[arrowItem.id]}
-                    moveTime={moveTime}
-                    onReachTop={() => this.handleReachTop(arrowItem.id, arrowItem.type)}
-                    distance={element.clientHeight}
-                  />
-                ))}
-              </div>
-            </React.Fragment>
-          )}
+        <div className="arrow-space">
+          <div className="arrow-move-container">
+            {element && (
+              <React.Fragment>
+                <div className="arrow-move-wrapper">
+                  {leftArrowData.map(arrowItem => (
+                    <ArrowItem
+                      key={arrowItem.id}
+                      type={arrowItem.type}
+                      isStart={!!isAnimatedMap[arrowItem.id]}
+                      moveTime={moveTime}
+                      onReachTop={() =>
+                        this.handleReachTop(arrowItem.id, arrowItem.type)
+                      }
+                      distance={element.clientHeight}
+                    />
+                  ))}
+                </div>
+                <div className="arrow-move-wrapper">
+                  {downArrowData.map(arrowItem => (
+                    <ArrowItem
+                      key={arrowItem.id}
+                      type={arrowItem.type}
+                      isStart={!!isAnimatedMap[arrowItem.id]}
+                      moveTime={moveTime}
+                      onReachTop={() =>
+                        this.handleReachTop(arrowItem.id, arrowItem.type)
+                      }
+                      distance={element.clientHeight}
+                    />
+                  ))}
+                </div>
+                <div className="arrow-move-wrapper">
+                  {upArrowData.map(arrowItem => (
+                    <ArrowItem
+                      key={arrowItem.id}
+                      type={arrowItem.type}
+                      isStart={!!isAnimatedMap[arrowItem.id]}
+                      moveTime={moveTime}
+                      onReachTop={() =>
+                        this.handleReachTop(arrowItem.id, arrowItem.type)
+                      }
+                      distance={element.clientHeight}
+                    />
+                  ))}
+                </div>
+                <div className="arrow-move-wrapper">
+                  {rightArrowData.map(arrowItem => (
+                    <ArrowItem
+                      key={arrowItem.id}
+                      type={arrowItem.type}
+                      isStart={!!isAnimatedMap[arrowItem.id]}
+                      moveTime={moveTime}
+                      onReachTop={() =>
+                        this.handleReachTop(arrowItem.id, arrowItem.type)
+                      }
+                      distance={element.clientHeight}
+                    />
+                  ))}
+                </div>
+              </React.Fragment>
+            )}
+          </div>
         </div>
       </div>
     );

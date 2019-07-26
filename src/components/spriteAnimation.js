@@ -41,7 +41,6 @@ export class SpriteAnimation {
             requestAnimationFrame(animation);
 
             function animation(now) {
-                console.log('now', now);
                 // The now parameter passed to animation gives us the current time
                 if (now - lastTime < duration) {
                     // This if statement ensures that animation() in relation to the total duration. Otherwise it would fire at 60fps
