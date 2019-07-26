@@ -2,7 +2,11 @@ import React from "react";
 
 import { EnumArrowType } from "../const";
 
-import ArrowIcon from "../assets/itg_arrow_good_400x400.png";
+import UpArrow from "../assets/upArrow.png";
+import DownArrow from "../assets/downArrow.png";
+import LeftArrow from "../assets/leftArrow.png";
+import RightArrow from "../assets/rightArrow.png";
+
 import { IMAGE_SIZE } from "../components/ExplosionArrow";
 
 class ArrowItem extends React.Component {
@@ -36,33 +40,32 @@ class ArrowItem extends React.Component {
     }
   };
 
-  getRotateAngle = () => {
+  getImageSource = () => {
     switch (this.props.type) {
       case EnumArrowType.UP:
-        return 180;
+        return UpArrow;
       case EnumArrowType.LEFT:
-        return 90;
+        return LeftArrow;
       case EnumArrowType.RIGHT:
-        return -90;
+        return RightArrow;
       default:
-        return 0;
+        return DownArrow;
     }
   };
 
   render() {
     const { moveTime } = this.props;
     const { bottom, scale } = this.state;
-    const rotate = `rotate(${this.getRotateAngle()}deg)`;
     return (
       <img
-        src={ArrowIcon}
+        src={this.getImageSource()}
         alt="up-icon"
         className={`arrow-item`}
         style={{
           transition: `bottom ${moveTime /
             1000}s linear, opacity 0.2s, transform 0.2s`,
           bottom,
-          transform: `scale(${scale}) ${rotate}`,
+          transform: `scale(${scale})`,
           opacity: scale,
           width: IMAGE_SIZE,
           height: IMAGE_SIZE
