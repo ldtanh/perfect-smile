@@ -14,6 +14,7 @@ const PlayRoad = React.memo(({ onScoreChange, webcam, gameRef }) => (
       webcam={webcam}
       ref={gameRef}
     />
+    <div className="play-road-bg" />
   </div>
 ));
 

@@ -4,6 +4,7 @@ import Webcam from "./Webcam";
 import PlayRoad from "./PlayRoad";
 import BackButton from "./BackButton";
 import HappyBar from "./HappyBar";
+import ScoreBoard from "./ScoreBoard";
 
 class PlayContainer extends React.Component {
   webcamRef = React.createRef();
@@ -31,6 +32,7 @@ class PlayContainer extends React.Component {
         <Webcam ref={this.webcamRef} gameRef={this.gameRef} />
         <BackButton onStop={onStop} />
         <HappyBar percentage={happy} />
+        <ScoreBoard score={score} />
       </div>
     );
   }
