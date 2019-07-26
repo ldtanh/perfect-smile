@@ -5,7 +5,7 @@ export const EnumArrowType = {
   RIGHT: 'right'
 };
 
-const CONST_TIME = 5000;
+const CONST_TIME = 2000;
 
 export const MOVE_TIME = 5000;
 

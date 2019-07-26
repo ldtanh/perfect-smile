@@ -3,13 +3,14 @@ import React from "react";
 import { EnumArrowType } from "../const";
 
 import ArrowIcon from "../assets/itg_arrow_good_400x400.png";
+import { IMAGE_SIZE } from "../components/ExplosionArrow";
 
 class ArrowItem extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      bottom: -30,
+      bottom: -IMAGE_SIZE,
       scale: 1
     };
   }
@@ -19,7 +20,7 @@ class ArrowItem extends React.Component {
     if (isStart && !prevProps.isStart) {
       this.setState(
         {
-          bottom: distance + 100
+          bottom: distance
         },
         () => setTimeout(this._onReachTop, moveTime - 500)
       );
@@ -62,7 +63,9 @@ class ArrowItem extends React.Component {
             1000}s linear, opacity 0.2s, transform 0.2s`,
           bottom,
           transform: `scale(${scale}) ${rotate}`,
-          opacity: scale
+          opacity: scale,
+          width: IMAGE_SIZE,
+          height: IMAGE_SIZE
         }}
       />
     );

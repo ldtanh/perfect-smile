@@ -10,12 +10,14 @@ export const EnumDirection = {
   BOTTOM: "bottom"
 };
 
-const IMAGE_STYLE = { width: 30, height: 30 };
+export const IMAGE_SIZE = 80;
+
+const IMAGE_STYLE = { width: IMAGE_SIZE, height: IMAGE_SIZE };
 const EXPLOSION_STYLE = {
-  width: 50,
-  height: 50,
+  width: IMAGE_SIZE + 40,
+  height: IMAGE_SIZE + 40,
   position: "relative",
-  top: -30
+  top: -(IMAGE_SIZE + 10)
 };
 class ExplosionArrow extends Component {
   componentDidMount() {
