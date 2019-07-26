@@ -1,0 +1,19 @@
+.play-time {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%);
+    color: white;
+    z-index: 3;
+}
+
+.play-time .title {
+    padding-right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.play-time .time {
+    font-size: 60px;
+    font-weight: bold;
+}

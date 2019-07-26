@@ -1,3 +1,7 @@
+html {
+  overflow: hidden !important;
+}
+
 .App {
   text-align: center;
 }
@@ -30,11 +34,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.video-element
-{
-    transform: rotateY(180deg);
-    -webkit-transform:rotateY(180deg); /* Safari and Chrome */
-    -moz-transform:rotateY(180deg); /* Firefox */
 }

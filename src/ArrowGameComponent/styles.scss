@@ -1,0 +1,44 @@
+.arrow-game-wrapper {
+  height: 100vh;
+  position: relative;
+  border: solid 1px #000;
+  margin-top: 100px;
+  overflow: hidden;
+}
+
+.arrow-move-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.arrow-move-wrapper {
+  width: 48px;
+}
+
+.arrow-item {
+  height: 30px;
+  display: block;
+  position: absolute;
+  bottom: -30px;
+}
+
+.arrow-item-top {
+  bottom: 100px;
+}
+
+.arrow-holder-wrapper {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.arrow-holder {
+  height: 30px;
+  border: solid 1px #000;
+}
+
+.arrow-move-wrapper {
+
+}
