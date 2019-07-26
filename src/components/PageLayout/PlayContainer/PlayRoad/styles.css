@@ -1,0 +1,11 @@
+.play-road {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2;
+    width: 600px;
+    height: 100vh;
+    background: black;
+    opacity: 0.5;
+}
