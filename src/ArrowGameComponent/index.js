@@ -3,6 +3,7 @@ import React from "react";
 import ArrowItem from "./ArrowItem";
 import "./styles.scss";
 import { EnumArrowType } from "../const";
+import ExplosionArrow, { EnumDirection } from "../components/ExplosionArrow";
 
 // props:
 // moveTime: number -> how many second to reach top
@@ -78,10 +79,10 @@ class ArrowGameComponent extends React.Component {
     return (
       <div className="arrow-game-wrapper" id="arrow-game">
         <div className="arrow-holder-wrapper">
-          <div className="arrow-holder" />
-          <div className="arrow-holder" />
-          <div className="arrow-holder" />
-          <div className="arrow-holder" />
+          <ExplosionArrow direction={EnumDirection.LEFT} />
+          <ExplosionArrow direction={EnumDirection.BOTTOM} />
+          <ExplosionArrow direction={EnumDirection.TOP} />
+          <ExplosionArrow direction={EnumDirection.RIGHT} />
         </div>
         <div className="arrow-move-container">
           {element && (

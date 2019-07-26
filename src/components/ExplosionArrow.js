@@ -3,7 +3,7 @@ import { SpriteAnimation } from "./spriteAnimation";
 import Vortex from "./spritesheet.png"; // Tell Webpack this JS file uses this image
 import ArrowIcon from "./itg_arrow_good_400x400.png"; // Tell Webpack this JS file uses this image
 
-const EnumDirection = {
+export const EnumDirection = {
   TOP: "top",
   LEFT: "left",
   RIGHT: "right",
