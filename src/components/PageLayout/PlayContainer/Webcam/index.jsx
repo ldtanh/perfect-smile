@@ -18,6 +18,7 @@ export default class Webcam extends React.Component {
 
   listComingDirection = [];
   directionId = 0;
+  isFirstFaceDetected = true;
 
   loadFaceDetector = async () => {
     const faceDetector = faceapi.nets.tinyFaceDetector;
@@ -49,6 +50,10 @@ export default class Webcam extends React.Component {
       .detectSingleFace(mediaElement, faceDetectionOptions)
       .withFaceExpressions();
     if (result) {
+      if (this.isFirstFaceDetected) {
+        this.props.gameRef.current.start();
+        this.isFirstFaceDetected = false;
+      }
       this.onReceivedNextFrame(result);
     } else {
       this.setState({
