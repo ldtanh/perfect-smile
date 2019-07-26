@@ -1,0 +1,9 @@
+.vscode/
+# NodeJS and Yarn
+node_modules/
+node_modules_v1/
+node_modules_v2/
+npm-debug.log
+yarn-error.log
+.idea/*
+.log/*
