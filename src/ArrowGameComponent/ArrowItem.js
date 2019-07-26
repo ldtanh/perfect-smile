@@ -1,6 +1,6 @@
 import React from "react";
 
-import UpIcon from "../asset/up_icon.png";
+import UpIcon from "../assets/up_icon.png";
 
 class ArrowItem extends React.Component {
   constructor(props) {
