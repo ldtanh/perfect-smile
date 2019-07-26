@@ -50,13 +50,16 @@ class ExplosionArrow extends Component {
     return (
       <div>
         <div>
-          <img src={ArrowIcon} style={IMAGE_STYLE} />
+          <img
+            src={ArrowIcon}
+            style={{
+              ...IMAGE_STYLE,
+              transform: `rotate(${this.getRotateAngle()}deg)`
+            }}
+          />
         </div>
         <div
-          style={{
-            ...EXPLOSION_STYLE,
-            transform: [{ rotate: `${this.getRotateAngle()}deg` }]
-          }}
+          style={EXPLOSION_STYLE}
           className={`image-${this.props.direction}`}
           data-animation-src={Vortex}
         ></div>
