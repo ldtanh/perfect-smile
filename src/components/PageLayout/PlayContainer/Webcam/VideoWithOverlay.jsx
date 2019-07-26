@@ -54,14 +54,14 @@ export default class VideoWithOverlay extends React.Component {
         <video
           muted
           autoPlay
-          style={Object.assign({}, this.props.videoStyle)}
+          style={{ ...this.props.videoStyle, width: '500px' }}
           ref={this.onVideoRef}
           onPlay={this.onPlay}
           src={this.props.src}
           className="video-element"
         />
         <canvas
-          style={{ position: "absolute", top: 0, left: 0 }}
+          style={{ position: "absolute", top: 0, left: 0, width: '500px' }}
           ref={this.onCanvasRef}
         />
       </div>
