@@ -88,14 +88,14 @@ class ArrowGameComponent extends React.Component {
 
   handleReachTop = async (id, type) => {
     const currentTime = Date.now();
-    const {
-      isValid,
-      happyValue
-    } = await this.props.webcam.current.checkDirectionWithTimeout(
+    const data = await this.props.webcam.current.checkDirectionWithTimeout(
       type,
       TIMEOUT_DETECT_MOVEMENT
     );
-    console.log(isValid);
+    const {
+      isValid,
+      happyValue
+    } = data;
     if (isValid) {
       const detectTime = Date.now();
       const elapsedTime = detectTime - currentTime;

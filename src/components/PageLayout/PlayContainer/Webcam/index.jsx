@@ -9,7 +9,7 @@ const MAX_FRAME_LENGTH = 4;
 const EPS = 0.01;
 const HAPPY_THRESHOLD = 0.5;
 
-export default class Webcam extends React.PureComponent {
+export default class Webcam extends React.Component {
   state = {
     listFrames: [],
     faceDetectionOptions: new faceapi.TinyFaceDetectorOptions(),
@@ -89,7 +89,7 @@ export default class Webcam extends React.PureComponent {
         item => item.id !== thisId
       );
       resolve({
-        valid: false,
+        isValid: false,
         happyValue: null
       });
     }, timeout);
@@ -106,7 +106,7 @@ export default class Webcam extends React.PureComponent {
     const { happy } = expressions;
     if (happy < HAPPY_THRESHOLD) {
       // Not enough happy!
-      // console.log(`Unhappy!!! Rate: ${happy * 100} %`);
+      console.log(`Unhappy!!! Rate: ${happy * 100} %`);
     }
     const { box } = detection;
     const { x, y } = box;
