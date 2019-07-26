@@ -1,7 +1,12 @@
 import React from "react";
 
 import ArrowItem from "./ArrowItem";
-import { EnumArrowType } from "../const";
+import {
+  COOL_SCORE,
+  EnumArrowType,
+  PERFECT_SCORE,
+  TIMEOUT_DETECT_MOVEMENT
+} from "../const";
 import ExplosionArrow, { EnumDirection } from "../components/ExplosionArrow";
 
 import "./styles.scss";
@@ -60,27 +65,42 @@ class ArrowGameComponent extends React.Component {
     });
   };
 
+  handleBoom = type => {
+    switch (type) {
+      case EnumArrowType.UP: {
+        this.upRef.current.boom();
+        break;
+      }
+      case EnumArrowType.DOWN: {
+        this.downRef.current.boom();
+        break;
+      }
+      case EnumArrowType.LEFT: {
+        this.leftRef.current.boom();
+        break;
+      }
+      case EnumArrowType.RIGHT: {
+        this.rightRef.current.boom();
+        break;
+      }
+    }
+  };
+
   handleReachTop = async (id, type) => {
+    const currentTime = Date.now();
     const result = Math.random() < 0.5;
     if (result) {
-      switch (type) {
-        case EnumArrowType.UP: {
-          this.upRef.current.boom();
-          break;
-        }
-        case EnumArrowType.DOWN: {
-          this.downRef.current.boom();
-          break;
-        }
-        case EnumArrowType.LEFT: {
-          this.leftRef.current.boom();
-          break;
-        }
-        case EnumArrowType.RIGHT: {
-          this.rightRef.current.boom();
-          break;
-        }
+      const detectTime = Date.now();
+      const elapsedTime = detectTime - currentTime;
+      if (
+        elapsedTime <= TIMEOUT_DETECT_MOVEMENT / 3 ||
+        elapsedTime > (TIMEOUT_DETECT_MOVEMENT * 2) / 3
+      ) {
+        this.props.onScoreChange(COOL_SCORE);
+      } else {
+        this.props.onScoreChange(PERFECT_SCORE);
       }
+      this.handleBoom(type);
     }
     return result;
   };

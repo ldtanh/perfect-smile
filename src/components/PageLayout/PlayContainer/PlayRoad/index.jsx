@@ -5,9 +5,13 @@ import { ARROWS, MOVE_TIME } from "../../../../const";
 
 import "./styles.css";
 
-const PlayRoad = () => (
+const PlayRoad = ({ onScoreChange }) => (
   <div className="play-road">
-    <ArrowGameComponent moveTime={MOVE_TIME} arrows={ARROWS} />
+    <ArrowGameComponent
+      moveTime={MOVE_TIME}
+      arrows={ARROWS}
+      onScoreChange={onScoreChange}
+    />
   </div>
 );
 
