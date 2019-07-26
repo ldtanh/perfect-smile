@@ -8,7 +8,7 @@ const MenuContainer = ({ onPlay }) => (
         <img src={Logo} alt='' />
 
         <div className="title">
-            CHOOSE LEVEL
+            LEVELS
         </div>
 
         <LevelNavbar onPlay={onPlay} />

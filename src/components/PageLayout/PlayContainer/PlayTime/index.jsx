@@ -8,7 +8,7 @@ const displayFormattedTime = (seconds) => {
     return [minutes, seconds % 60].map(format).join(':');
 };
 
-class PlayTime extends React.Component {
+class PlayTime extends React.PureComponent {
     interval = null;
 
     state = {

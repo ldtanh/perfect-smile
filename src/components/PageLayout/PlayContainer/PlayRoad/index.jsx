@@ -5,10 +5,10 @@ import { ARROWS, MOVE_TIME } from "../../../../const";
 
 import "./styles.css";
 
-const PlayRoad = () => (
+const PlayRoad = React.memo(() => (
   <div className="play-road">
     <ArrowGameComponent moveTime={MOVE_TIME} arrows={ARROWS} />
   </div>
-);
+));
 
 export default PlayRoad;

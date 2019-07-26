@@ -6,7 +6,7 @@ import './styles.css';
 const MAX_FRAME_LENGTH = 4;
 const EPS = 0.001;
 
-export default class Webcam extends React.Component {
+export default class Webcam extends React.PureComponent {
     state = {
         listFrames: [],
         faceDetectionOptions: new faceapi.TinyFaceDetectorOptions(),
@@ -26,7 +26,7 @@ export default class Webcam extends React.Component {
         await Promise.all([
             faceapi.nets.faceExpressionNet.loadFromUri('./models'),
             faceapi.nets.tinyFaceDetector.loadFromUri('./models')
-        ])
+        ]);
         await this.loadFaceDetector();
     }
 
@@ -128,7 +128,6 @@ export default class Webcam extends React.Component {
                 <VideoWithOverlay
                     srcObject={this.state.srcObject}
                     onLoaded={refs => this.setState(refs)}
-                    videoStyle={{ maxWidth: this.props.maxVideoWidth }}
                     onVideoRef={this.onVideoRef}
                     onReceivedNextFrame={this.onReceivedNextFrame}
                 />
