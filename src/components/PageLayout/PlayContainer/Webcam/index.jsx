@@ -7,8 +7,8 @@ import "./styles.css";
 import DeferredPromise from "../../../DefferedPromise";
 import { EnumArrowType } from "../../../../const";
 
-const MAX_FRAME_LENGTH = 12;
-const EPS = 0.02;
+const MAX_FRAME_LENGTH = 4;
+const EPS = 0.1;
 const HAPPY_THRESHOLD = 0.5;
 
 export default class Webcam extends React.Component {

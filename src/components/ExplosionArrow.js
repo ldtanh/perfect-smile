@@ -26,8 +26,9 @@ class ExplosionArrow extends Component {
   componentDidMount() {
     this._animationOne = new SpriteAnimation({
       element: `image-${this.props.direction}`,
-      frames: 60,
+      frames: 120,
       columns: 10,
+      duration: 300,
       rows: this.getRowOfSprite(),
       iterations: 1
     });
