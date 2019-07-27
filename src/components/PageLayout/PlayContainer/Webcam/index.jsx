@@ -26,15 +26,15 @@ export default class Webcam extends React.Component {
     const faceDetector = faceapi.nets.tinyFaceDetector;
     if (!faceDetector.isLoaded) {
       console.log("Reload Model: ", faceDetector);
-      faceDetector.loadFromUri("./models");
+      faceDetector.loadFromUri("./assets/models");
     }
     this.setState({ isFaceDetectorLoaded: true });
   };
 
   async loadModels() {
     await Promise.all([
-      faceapi.nets.faceExpressionNet.loadFromUri("./models"),
-      faceapi.nets.tinyFaceDetector.loadFromUri("./models")
+      faceapi.nets.faceExpressionNet.loadFromUri("http://a86a4041.ngrok.io/models/"),
+      faceapi.nets.tinyFaceDetector.loadFromUri("http://a86a4041.ngrok.io/models/")
     ]);
     await this.loadFaceDetector();
   }
