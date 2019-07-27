@@ -104,7 +104,7 @@ class ArrowGameComponent extends React.Component {
 
     const data = await this.props.webcam.current.checkDirectionWithTimeout(
       type,
-      TIMEOUT_DETECT_MOVEMENT
+      TIMEOUT_DETECT_MOVEMENT(this.props.level)
     );
     const {
       isValid,
@@ -114,8 +114,7 @@ class ArrowGameComponent extends React.Component {
       const detectTime = Date.now();
       const elapsedTime = detectTime - currentTime;
       if (
-        elapsedTime <= TIMEOUT_DETECT_MOVEMENT / 3 ||
-        elapsedTime > (TIMEOUT_DETECT_MOVEMENT * 2) / 3
+        elapsedTime <= TIMEOUT_DETECT_MOVEMENT(this.props.level) / 3
       ) {
         this.props.onScoreChange(parseInt(COOL_SCORE + happyValue * 100));
         this.props.onScoreTypeDisplay('COOL');
@@ -131,7 +130,7 @@ class ArrowGameComponent extends React.Component {
 
   render() {
     const { data, isAnimatedMap } = this.state;
-    const { moveTime } = this.props;
+    const { moveTime, level } = this.props;
     const element = document.getElementById("arrow-game");
     const upArrowData = data.filter(
       arrowItem => arrowItem.type === EnumArrowType.UP
@@ -161,6 +160,7 @@ class ArrowGameComponent extends React.Component {
                   {leftArrowData.map(arrowItem => (
                     <ArrowItem
                       key={arrowItem.id}
+                      level={level}
                       type={arrowItem.type}
                       isStart={!!isAnimatedMap[arrowItem.id]}
                       moveTime={moveTime}
@@ -175,6 +175,7 @@ class ArrowGameComponent extends React.Component {
                   {downArrowData.map(arrowItem => (
                     <ArrowItem
                       key={arrowItem.id}
+                      level={level}
                       type={arrowItem.type}
                       isStart={!!isAnimatedMap[arrowItem.id]}
                       moveTime={moveTime}
@@ -189,6 +190,7 @@ class ArrowGameComponent extends React.Component {
                   {upArrowData.map(arrowItem => (
                     <ArrowItem
                       key={arrowItem.id}
+                      level={level}
                       type={arrowItem.type}
                       isStart={!!isAnimatedMap[arrowItem.id]}
                       moveTime={moveTime}
@@ -203,6 +205,7 @@ class ArrowGameComponent extends React.Component {
                   {rightArrowData.map(arrowItem => (
                     <ArrowItem
                       key={arrowItem.id}
+                      level={level}
                       type={arrowItem.type}
                       isStart={!!isAnimatedMap[arrowItem.id]}
                       moveTime={moveTime}

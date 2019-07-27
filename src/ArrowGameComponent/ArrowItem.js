@@ -1,6 +1,6 @@
 import React from "react";
 
-import { EnumArrowType } from "../const";
+import { EnumArrowType, TIMEOUT_DETECT_MOVEMENT } from "../const";
 
 import UpArrow from "../assets/upArrow.png";
 import DownArrow from "../assets/downArrow.png";
@@ -20,13 +20,17 @@ class ArrowItem extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { isStart, distance, moveTime } = this.props;
+    const { isStart, distance, moveTime, level } = this.props;
     if (isStart && !prevProps.isStart) {
       this.setState(
         {
           bottom: distance
         },
-        () => setTimeout(this._onReachTop, moveTime - 500)
+        () =>
+          setTimeout(
+            this._onReachTop,
+            moveTime - TIMEOUT_DETECT_MOVEMENT(level)
+          )
       );
     }
   }
@@ -63,7 +67,7 @@ class ArrowItem extends React.Component {
         className={`arrow-item`}
         style={{
           transition: `bottom ${moveTime /
-            1000}s linear, opacity 0.2s, transform 0.2s`,
+            1000}s linear, opacity 0.1s, transform 0.1s`,
           bottom,
           transform: `scale(${scale})`,
           opacity: scale,
