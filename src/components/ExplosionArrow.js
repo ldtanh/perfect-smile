@@ -20,14 +20,15 @@ const EXPLOSION_STYLE = {
   width: IMAGE_SIZE + 80,
   height: IMAGE_SIZE + 80,
   position: "relative",
-  top: -(IMAGE_SIZE + 20)
+  top: -(IMAGE_SIZE + 40)
 };
 class ExplosionArrow extends Component {
   componentDidMount() {
     this._animationOne = new SpriteAnimation({
       element: `image-${this.props.direction}`,
-      frames: 60,
+      frames: 120,
       columns: 10,
+      duration: 300,
       rows: this.getRowOfSprite(),
       iterations: 1
     });

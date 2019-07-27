@@ -29,7 +29,7 @@ class ArrowGameComponent extends React.Component {
       isAnimatedMap: {} // map arrow id -> boolean
     };
     setTimeout(() => this.forceUpdate(), 100);
-    setTimeout(this.start, 500);
+    // setTimeout(this.start, 500);
   }
 
   _preProcessingData = () => {
@@ -117,11 +117,14 @@ class ArrowGameComponent extends React.Component {
         elapsedTime <= TIMEOUT_DETECT_MOVEMENT / 3 ||
         elapsedTime > (TIMEOUT_DETECT_MOVEMENT * 2) / 3
       ) {
-        this.props.onScoreChange(COOL_SCORE);
+        this.props.onScoreChange(parseInt(COOL_SCORE + happyValue * 100));
+        this.props.onScoreTypeDisplay('COOL');
       } else {
-        this.props.onScoreChange(PERFECT_SCORE);
+        this.props.onScoreChange(parseInt(PERFECT_SCORE + happyValue * 100));
+        this.props.onScoreTypeDisplay('PERFECT');
       }
       this.handleBoom(type);
+      this.props.onHappyChange(happyValue);
     }
     return isValid;
   };

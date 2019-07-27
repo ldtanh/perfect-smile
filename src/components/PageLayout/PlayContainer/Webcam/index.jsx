@@ -1,11 +1,13 @@
 import * as React from "react";
 import * as faceapi from "face-api.js";
+import { debounce } from "lodash";
+
 import VideoWithOverlay from "./VideoWithOverlay";
 import "./styles.css";
 import DeferredPromise from "../../../DefferedPromise";
 import { EnumArrowType } from "../../../../const";
 
-const MAX_FRAME_LENGTH = 8;
+const MAX_FRAME_LENGTH = 4;
 const EPS = 0.1;
 const HAPPY_THRESHOLD = 0.5;
 
@@ -18,6 +20,7 @@ export default class Webcam extends React.Component {
 
   listComingDirection = [];
   directionId = 0;
+  isFirstFaceDetected = true;
 
   loadFaceDetector = async () => {
     const faceDetector = faceapi.nets.tinyFaceDetector;
@@ -43,13 +46,17 @@ export default class Webcam extends React.Component {
   runFaceRecognition = async () => {
     const { mediaElement, overlay, faceDetectionOptions } = this.state;
     if (!mediaElement || !overlay) {
-      console.log('here')
+      // console.log("here");
       return;
     }
     const result = await faceapi
       .detectSingleFace(mediaElement, faceDetectionOptions)
       .withFaceExpressions();
     if (result) {
+      if (this.isFirstFaceDetected) {
+        this.props.gameRef.current.start();
+        this.isFirstFaceDetected = false;
+      }
       this.onReceivedNextFrame(result);
     } else {
       this.runFaceRecognition();
@@ -105,7 +112,7 @@ export default class Webcam extends React.Component {
     const { happy } = expressions;
     if (happy < HAPPY_THRESHOLD) {
       // Not enough happy!
-      console.log(`Unhappy!!! Rate: ${happy * 100} %`);
+      // console.log(`Unhappy!!! Rate: ${happy * 100} %`);
     }
     const { box } = detection;
     const { x, y } = box;
@@ -153,7 +160,7 @@ export default class Webcam extends React.Component {
     } else {
       this.setState({
         listFrames: [
-            ...listFrames,
+          ...listFrames,
           {
             x,
             y
@@ -173,15 +180,15 @@ export default class Webcam extends React.Component {
       );
     }
 
-        return (
-            <div className="webcam-container">
-                <VideoWithOverlay
-                    srcObject={this.state.srcObject}
-                    onLoaded={refs => this.setState(refs)}
-                    onVideoRef={this.onVideoRef}
-                    onReceivedNextFrame={this.onReceivedNextFrame}
-                />
-            </div>
-        );
-    }
+    return (
+      <div className="webcam-container">
+        <VideoWithOverlay
+          srcObject={this.state.srcObject}
+          onLoaded={refs => this.setState(refs)}
+          onVideoRef={this.onVideoRef}
+          onReceivedNextFrame={this.onReceivedNextFrame}
+        />
+      </div>
+    );
+  }
 }

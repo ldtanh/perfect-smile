@@ -7,12 +7,12 @@ export const EnumArrowType = {
 
 export const LEVEL = {
   UNSET: 0,
-  EASY: 1,
-  MEDIUM: 2,
-  HARD: 3,
+  EASY: 'https://www.youtube.com/embed/IHNzOHi8sJs?autoplay=1&controls=0&showinfo=0&autohide=1&start=2&loop=1',
+  MEDIUM: 'https://www.youtube.com/embed/mAKsZ26SabQ?autoplay=1&controls=0&showinfo=0&autohide=1&start=30&loop=1',
+  HARD: 'https://www.youtube.com/embed/i0p1bmr0EmE?autoplay=1&controls=0&showinfo=0&autohide=1&start=05&loop=1',
 };
 
-const CONST_TIME = 2000;
+const CONST_TIME = 5000;
 
 const MIN_BETWEEN_ARROW = 2000;
 
