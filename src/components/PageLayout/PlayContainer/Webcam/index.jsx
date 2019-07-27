@@ -26,15 +26,15 @@ export default class Webcam extends React.Component {
     const faceDetector = faceapi.nets.tinyFaceDetector;
     if (!faceDetector.isLoaded) {
       console.log("Reload Model: ", faceDetector);
-      faceDetector.loadFromUri("./assets/models");
+      faceDetector.loadFromUri("./models");
     }
     this.setState({ isFaceDetectorLoaded: true });
   };
 
   async loadModels() {
     await Promise.all([
-      faceapi.nets.faceExpressionNet.loadFromUri("http://a86a4041.ngrok.io/models/"),
-      faceapi.nets.tinyFaceDetector.loadFromUri("http://a86a4041.ngrok.io/models/")
+      faceapi.nets.faceExpressionNet.loadFromUri("./models"),
+      faceapi.nets.tinyFaceDetector.loadFromUri("./models")
     ]);
     await this.loadFaceDetector();
   }
@@ -52,9 +52,6 @@ export default class Webcam extends React.Component {
     const result = await faceapi
       .detectSingleFace(mediaElement, faceDetectionOptions)
       .withFaceExpressions();
-    if(!this.props.gameRef.current) {
-      return;
-    }
     if (result) {
       if (this.isFirstFaceDetected) {
         this.props.gameRef.current.start();
