@@ -11,6 +11,8 @@ let webcamId = 0;
 class PlayContainer extends React.Component {
   webcamRef = React.createRef();
   gameRef = React.createRef();
+  happyTimeout = null;
+  scoreTimeout = null;
 
   state = {
     score: 0,
@@ -26,7 +28,12 @@ class PlayContainer extends React.Component {
     }, 10000);
   }
 
-  handleScoreChange = add => this.setState({ score: this.state.score + add });
+  componentWillUnmount() {
+      clearTimeout(this.happyTimeout);
+      clearTimeout(this.scoreTimeout)
+  }
+
+    handleScoreChange = add => this.setState({ score: this.state.score + add });
 
   handleHappyChange = happy => {
       if (happy) {
@@ -34,7 +41,7 @@ class PlayContainer extends React.Component {
           document.getElementById("happy-score").innerHTML = `+ ${parseInt(happy * 100)} HAPPY`;
           document.getElementById("happy-score").style.opacity = '1';
 
-          setTimeout(() => {
+          this.happyTimeout = setTimeout(() => {
               document.getElementById("happy-score").innerHTML = '';
               document.getElementById("happy-score").style.opacity = '0';
           }, 2000);
@@ -47,14 +54,14 @@ class PlayContainer extends React.Component {
       if (type === 'COOL') {
           document.getElementById("score-cool").style.opacity = '1';
 
-          setTimeout(() => {
+          this.scoreTimeout = setTimeout(() => {
               document.getElementById("score-type").style.opacity = '0';
               document.getElementById("score-cool").style.opacity = '0';
           }, 1000);
       } else {
           document.getElementById("score-perfect").style.opacity = '1';
 
-          setTimeout(() => {
+          this.scoreTimeout = setTimeout(() => {
               document.getElementById("score-type").style.opacity = '0';
               document.getElementById("score-perfect").style.opacity = '0';
           }, 1000);
